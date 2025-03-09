@@ -156,29 +156,6 @@ const Listing = ({ params }) => {
                                         <CgMenuGridR /></Button>
                                     <Button className={productView === 'four' && 'act'} onClick={() => setProductView('four')}><TfiLayoutGrid4Alt /></Button>
                                 </div>
-
-                            {
-                            //     <div className="ml-auto showByFilter">
-                            //     <Button onClick={handleClick}>Show 9 <FaAngleDown /></Button>
-                            //     <Menu
-                            //         className="w-100 showPerPageDropdown"
-                            //         id="basic-menu"
-                            //         anchorEl={anchorEl}
-                            //         open={openDropdown}
-                            //         onClose={handleClose}
-                            //         MenuListProps={{
-                            //             'aria-labelledby': 'basic-button',
-                            //         }}
-                            //     >
-                            //         <MenuItem onClick={handleClose}>10</MenuItem>
-                            //         <MenuItem onClick={handleClose}>20</MenuItem>
-                            //         <MenuItem onClick={handleClose}>30</MenuItem>
-                            //         <MenuItem onClick={handleClose}>40</MenuItem>
-                            //         <MenuItem onClick={handleClose}>50</MenuItem>
-                            //         <MenuItem onClick={handleClose}>60</MenuItem>
-                            //     </Menu>
-                            // </div>
-                            }
                             </div>
 
 

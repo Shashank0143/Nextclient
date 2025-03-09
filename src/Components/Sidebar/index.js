@@ -107,31 +107,6 @@ const Sidebar = (props) => {
                     <h6>FILTER BY RATING</h6>
 
                     <div className='scroll pl-0'>
-                        {
-                            // <ul>
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Frito Lay" />
-                            //     </li>
-
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Nespresso" />
-                            //     </li>
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Frito Lay" />
-                            //     </li>
-
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Nespresso" />
-                            //     </li>
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Frito Lay" />
-                            //     </li>
-
-                            //     <li>
-                            //         <FormControlLabel className='w-100' control={<Checkbox />} label="Nespresso" />
-                            //     </li>
-                            // </ul>
-                        }
                         <ul>
                             <li onClick={() => filterByRating(5)} className='cursor' >
                                 <Rating name="read-only" value={5} readOnly size="small"

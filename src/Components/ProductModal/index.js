@@ -50,36 +50,6 @@ const ProductModal = (props) => {
         setActiveSize(index);
         setTabError(false);
     }
-
-    // const selectedItem = (item, quantityVal) => {
-    //     if (chengeQuantity !== 0) {
-    //         setIsLoading(true);
-    //         const user = JSON.parse(localStorage.getItem("user"));
-    //         cartFields.productTitle = item?.productTitle
-    //         cartFields.image = item?.image
-    //         cartFields.rating = item?.rating
-    //         cartFields.price = item?.price
-    //         cartFields.quantity = quantityVal
-    //         cartFields.subTotal = parseInt(item?.price * quantityVal)
-    //         cartFields.productId = item?.id
-    //         cartFields.userId = user?.userId
-
-    //         //console.log(item?._id)
-
-    //         editData(`/api/cart/${item?._id}`, cartFields).then((res) => {
-    //             setTimeout(() => {
-    //                 setIsLoading(false);
-    //                 const user = JSON.parse(localStorage.getItem("user"));
-    //                 fetchDataFromApi(`/api/cart?userId=${user?.userId}`).then((res) => {
-    //                     setCartData(res);
-    //                 })
-    //             }, 1000)
-    //         })
-    //     }
-
-    // }
-
-
     const addtoCart = () => {
 
         if (activeSize !== null) {

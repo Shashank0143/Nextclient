@@ -63,9 +63,12 @@ export default function Home() {
       );
 
       fetchDataFromApi(
-        `/api/products?page=1&perPage=8&location=${location}`
+        `/api/products?page=1&perPage=12&location=${location}`
       ).then((res) => {
-        setProductsData(res);
+        const sortedProducts = res.products.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setProductsData({ ...res, products: sortedProducts });
       });
     } else {
       // setselectedCountry("All");
@@ -170,10 +173,13 @@ export default function Home() {
                             href={`/category/subCat/${item?.subCatId}`}
                             className="box"
                           >
-                            <img
+                            <Image
                               src={item?.images[0]}
                               className="w-100 transition"
                               alt="banner img"
+                              layout="responsive"
+                              width={0}
+                              height={0}
                             />
                           </Link>
                         ) : (
@@ -181,7 +187,10 @@ export default function Home() {
                             href={`/category/${item?.catId}`}
                             className="box"
                           >
-                            <img
+                            <Image
+                            layout="responsive"
+                            width={0}
+                            height={0}
                               src={item?.images[0]}
                               className="cursor w-100 transition"
                               alt="banner img"
@@ -196,74 +205,11 @@ export default function Home() {
 
             <div className="col-md-9 productRow">
               <div className="d-flex align-items-center res-flex-column">
-                <div className="info" style={{ width: "35%" }}>
-                  <h3 className="mb-0 hd">Popular Products</h3>
-                  <p className="text-light text-sml mb-0">
-                    Do not miss the current offers.
-                  </p>
-                </div>
-
-                <div
-                  className="ml-auto d-flex align-items-center justify-content-end res-full"
-                  style={{ width: "65%" }}
-                >
-                </div>
               </div>
-
-              <div
-                className="product_row w-100 mt-2"
-                style={{ opacity: `${isLoading === true ? "0.5" : "1"}` }}
-              >
-                {filterData?.length === 0 && (
-                  <div
-                    className="d-flex align-items-center justify-content-center"
-                    style={{ minHeight: "300px" }}
-                  >
-                    <CircularProgress />
-                  </div>
-                )}
-
-                {context.windowWidth > 992 ? (
-                  <Swiper
-                    slidesPerView={4}
-                    spaceBetween={0}
-                    navigation={true}
-                    slidesPerGroup={context.windowWidth > 992 ? 3 : 1}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                  >
-                    {filterData?.length !== 0 &&
-                      filterData
-                        ?.slice(0)
-                        ?.reverse()
-                        ?.map((item, index) => {
-                          return (
-                            <SwiperSlide key={index}>
-                              <ProductItem item={item} />
-                            </SwiperSlide>
-                          );
-                        })}
-                    <SwiperSlide style={{ opacity: 0 }}>
-                      <div className={`productItem`}></div>
-                    </SwiperSlide>
-                  </Swiper>
-                ) : (
-                  <div className="productScroller">
-                    {filterData?.length !== 0 &&
-                      filterData
-                        ?.slice(0)
-                        ?.reverse()
-                        ?.map((item, index) => {
-                          return <ProductItem item={item} key={index} />;
-                        })}
-                  </div>
-                )}
-              </div>
-
 
               <div className="d-flex align-items-center mt-2">
                 <div className="info w-75">
-                  <h3 className="mb-0 hd">Hot Selling</h3>
+                  <h3 className="mb-0 hd">Latest Products</h3>
                   <p className="text-light text-sml mb-0">
                     Shop Our Customize suits designs in your size
                   </p>
@@ -274,7 +220,7 @@ export default function Home() {
                 {productsData?.products?.length === 0 && (
                   <div
                     className="d-flex align-items-center justify-content-center"
-                    style={{ minHeight: "300px" }}
+                    style={{ minHeight: "600px" }}
                   >
                     <CircularProgress />
                   </div>
@@ -296,7 +242,7 @@ export default function Home() {
 
               <div className="d-flex align-items-center mt-4">
                 <div className="info">
-                  <h3 className="mb-0 hd">Designers`&apos;`s Choice</h3>
+                  <h3 className="mb-0 hd">Designers&apos;s Choice</h3>
                   <p className="text-light text-sml mb-0">
                     Do not miss the current offers.
                   </p>

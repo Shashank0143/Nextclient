@@ -1,9 +1,6 @@
 import React from 'react'
 import Helmet from "react-helmet";
 function MetaData({title, description, link, keywords}) {
-  // console.log("Title: ", title);
-  // console.log("Description: ", description);
-  // console.log("Link: ", link);
   return (
   <Helmet>
     <meta charSet='utf-8' />
